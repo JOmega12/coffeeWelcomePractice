@@ -5,14 +5,19 @@ import "./App.css";
 import { CoffeeList } from "./CoffeeList";
 import { CoffeeProvider } from "./providers/coffeeProvider";
 import { CreateCoffeeForm } from "./CreateCoffeeForm";
+import { AuthProvider } from "./providers/auth.provider";
+import { SignUpForm } from "./SignUpForm";
 
 function App() {
 
   return (
-    <CoffeeProvider>
-      <CoffeeList />
-      <CreateCoffeeForm />
-    </CoffeeProvider>
+    <AuthProvider>
+      <CoffeeProvider>
+        <SignUpForm />
+        <CoffeeList />
+        <CreateCoffeeForm />
+      </CoffeeProvider>
+    </AuthProvider>
   );
 }
 

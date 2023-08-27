@@ -8,6 +8,8 @@ export const CreateCoffeeForm = () => {
   const [titleInput, setTitleInput] = useState("");
   const [descriptionInput, setDescriptionInput] = useState("");
 
+  
+
   return (
     <form
       action=""
