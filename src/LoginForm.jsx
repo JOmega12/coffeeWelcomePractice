@@ -1,34 +1,18 @@
 import React, { useState } from "react";
 import { useAuth } from "./providers/auth.provider";
-import { LogoutButton } from "./LogoutButton";
 
-export const SignUpForm = () => {
-  const { user, register, isRegister, setIsRegister } = useAuth();
+export const LoginForm = () => {
+  const { login, } = useAuth();
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
 
   return (
-    <>
-      {/* need to access the user first to put the state */}
-      {isRegister=== true ? (
-        <>
-          <div>{user.username}</div>
-          <div>{user.password}</div>
-        </>
-      ) : (
-        <> 
-          <div>Not Logged In</div>
-        </>
-      )}
+    <section>
       <form
         action=""
         onSubmit={(e) => {
           e.preventDefault();
-          setUsernameInput("");
-          setPasswordInput("");
-          register({ username: usernameInput, password: passwordInput })
-          setIsRegister(true);
-          console.log(user)
+          login({username: usernameInput, password: passwordInput})
          }}
       >
         <input
@@ -48,8 +32,7 @@ export const SignUpForm = () => {
           value={passwordInput}
         />
         <input type="submit" value="submit" />
-        <LogoutButton />
       </form>
-    </>
+    </section>
   );
 };

@@ -1,8 +1,8 @@
 import { API_CONFIG } from "./config";
 
 
-export const registerFetch = async({username, password}) => {
-   fetch(API_CONFIG.baseUrl + "/app-users", {
+export const registerFetch = ({username, password}) => {
+   return fetch(API_CONFIG.baseUrl + "/app-users", {
       method: "POST",
       headers: {
          "Content-Type": "application/json",

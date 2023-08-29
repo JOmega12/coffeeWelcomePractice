@@ -7,6 +7,7 @@ import { CoffeeProvider } from "./providers/coffeeProvider";
 import { CreateCoffeeForm } from "./CreateCoffeeForm";
 import { AuthProvider } from "./providers/auth.provider";
 import { SignUpForm } from "./SignUpForm";
+import { LoginForm } from "./LoginForm";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
     <AuthProvider>
       <CoffeeProvider>
         <SignUpForm />
+        <LoginForm />
         <CoffeeList />
         <CreateCoffeeForm />
       </CoffeeProvider>
