@@ -2,17 +2,23 @@ import React, { useState } from "react";
 import { useAuth } from "./providers/auth.provider";
 
 export const LoginForm = () => {
-  const { login, } = useAuth();
+  const { login, setIsRegister} = useAuth();
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
 
   return (
-    <section>
+    <>
+      <h2>Login</h2>
       <form
         action=""
         onSubmit={(e) => {
           e.preventDefault();
           login({username: usernameInput, password: passwordInput})
+          .catch(() => {
+            console.error('cannot login')
+          })
+          
+          setIsRegister(true);
          }}
       >
         <input
@@ -33,6 +39,6 @@ export const LoginForm = () => {
         />
         <input type="submit" value="submit" />
       </form>
-    </section>
+    </>
   );
 };

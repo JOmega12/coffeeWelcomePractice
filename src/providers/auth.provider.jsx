@@ -3,6 +3,8 @@ import { registerFetch } from "../api/register";
 import { getUserFromServer } from "../api/getUser";
 
 
+//sign up form is not showing 
+
 const AuthContext = createContext({});
 
 export const AuthProvider = ({children}) => {
@@ -29,11 +31,16 @@ export const AuthProvider = ({children}) => {
       }
    }, []);
 
-   const login = async({username}) => {
+
+   //the login is not showing and the login is not registering
+   const login = async({username, password}) => {
       const user = await getUserFromServer({username});
       console.log({user})
+      if (user.password === password) {
+         throw new Error('invalid password')
+      }
+      setUser(user);
    }
-
 
    const logout = () => {
       setUser({});

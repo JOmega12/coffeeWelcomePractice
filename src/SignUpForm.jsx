@@ -10,14 +10,15 @@ export const SignUpForm = () => {
   return (
     <>
       {/* need to access the user first to put the state */}
-      {isRegister=== true ? (
+      <h2>Sign Up</h2>
+      {isRegister ? (
         <>
           <div>{user.username}</div>
           <div>{user.password}</div>
         </>
       ) : (
         <> 
-          <div>Not Logged In</div>
+          <h2>Not Logged In</h2>
         </>
       )}
       <form
