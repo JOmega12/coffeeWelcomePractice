@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "./providers/auth.provider";
+import { toast } from "react-hot-toast";
 
 export const LoginForm = () => {
   const { login, setIsRegister} = useAuth();
@@ -14,10 +15,10 @@ export const LoginForm = () => {
         onSubmit={(e) => {
           e.preventDefault();
           login({username: usernameInput, password: passwordInput})
-          .catch(() => {
-            console.error('cannot login')
-          })
-          
+            .catch((e) => {
+              // console.error('cannot login')
+              toast.error(e.message)
+            });
           setIsRegister(true);
          }}
       >

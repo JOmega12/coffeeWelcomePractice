@@ -1,5 +1,25 @@
 {
   "app-users": [
+    {
+      "username": "test",
+      "password": "test",
+      "id": 1
+    },
+    {
+      "username": "",
+      "password": "",
+      "id": 2
+    },
+    {
+      "username": "",
+      "password": "",
+      "id": 3
+    },
+    {
+      "username": "",
+      "password": "",
+      "id": 4
+    }
   ],
   "coffee": [
     {

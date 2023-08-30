@@ -8,13 +8,14 @@ import { CreateCoffeeForm } from "./CreateCoffeeForm";
 import { AuthProvider } from "./providers/auth.provider";
 import { SignUpForm } from "./SignUpForm";
 import { LoginForm } from "./LoginForm";
+import {Toaster} from 'react-hot-toast';
 
 function App() {
 
   return (
     <AuthProvider>
       <CoffeeProvider>
-        {/* <Toaster /> */}
+        <Toaster />
         <SignUpForm />
         <LoginForm />
         <CoffeeList />
