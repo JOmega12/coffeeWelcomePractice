@@ -9,17 +9,20 @@ import { AuthProvider } from "./providers/auth.provider";
 import { SignUpForm } from "./SignUpForm";
 import { LoginForm } from "./LoginForm";
 import {Toaster} from 'react-hot-toast';
+import { FavoriteProvider } from "./providers/favorite.provider";
 
 function App() {
 
   return (
     <AuthProvider>
       <CoffeeProvider>
-        <Toaster />
-        <SignUpForm />
-        <LoginForm />
-        <CoffeeList />
-        <CreateCoffeeForm />
+        <FavoriteProvider>
+          <Toaster />
+          <CoffeeList />
+          <SignUpForm />
+          <LoginForm />
+          <CreateCoffeeForm />
+        </FavoriteProvider>
       </CoffeeProvider>
     </AuthProvider>
   );

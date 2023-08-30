@@ -27,19 +27,23 @@ export const createFavorite = ({userId, coffeeId}) => {
 }
 
 export const deleteFavorite = (id) => {
-   return fetch(API_CONFIG.baseUrl + "/favorite/" + `${id}`, {
+   return fetch(API_CONFIG.baseUrl + "/favorite/" + id, {
       method: "DELETE",
+   }).then((response) => {
+      if(!response.ok) {
+         throw new Error("Failed to delete a favorite" + id);
+      }
+      return response;
    })
 }
 
-export const toggleFavorite = async({userId, coffeeId}) => {
+export const toggleFavoriteAPI = async({userId, coffeeId}) => {
    const allFavorites = await getAllFavorites();
    const matchingFavorite = allFavorites.find((favorite) => favorite.userId === userId && favorite.coffeeId === coffeeId);
 
    if(!matchingFavorite) {
       return await createFavorite({userId, coffeeId}) 
    }
-   return
+   return await deleteFavorite(matchingFavorite.id)
 
-   //delete matching favorite
 }

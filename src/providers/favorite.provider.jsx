@@ -1,40 +1,44 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
+import { getAllFavorites, toggleFavoriteAPI } from "../api/create-favorite";
 
-const favoriteContext = createContext({});
+const FavoriteContext = createContext({});
 
 export const FavoriteProvider = ({ children }) => {
   const [favorite, setFavorite] = useState([]);
 
   const refetch = () => {
-   //  getCoffee().then(setCoffee);
-
-  }
+    getAllFavorites().then(setFavorite);
+  };
 
   useEffect(() => {
     refetch();
   }, []);
 
   // const getCoffee = ({title, description}) => getNewCoffee({title, description});
-  const createFavorite = ({userId, coffeeId}) =>{
-    return getNewCoffee({ title, description })
-      .then(res => {
-        if(!res.ok) {
-          alert('something failed');
-          return
-        }
-        refetch();
-      })
-    }
+
+  const toggleFavorite = ({ userId, coffeeId }) => {
+    return toggleFavoriteAPI({ userId, coffeeId }).then(() => {
+      return refetch();
+    });
+  };
 
   return (
-    <FavoriteProvider.Provider value={{ }}>
+    <FavoriteContext.Provider
+      value={{
+        favorite,
+        toggleFavorite,
+        setFavorite,
+      }}>
       {children}
-    </FavoriteProvider.Provider>
+    </FavoriteContext.Provider>
   );
 };
 
 export const useFavorite = () => {
-  const context = useContext(favoriteContext);
+  const context = useContext(FavoriteContext);
   return {
+    favorite: context.favorite,
+    setFavorite: context.setFavorite,
+    toggleFavorite: context.toggleFavorite,
   };
 };
