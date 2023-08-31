@@ -14,7 +14,7 @@ export const getAllFavorites = () => {
 export const createFavorite = ({userId, coffeeId}) => {
    return fetch(API_CONFIG.baseUrl + '/favorite', {
       method: "POST",
-      header: {
+      headers: {
          "Content-Type": "application/json",
       },
       body: JSON.stringify({userId, coffeeId})

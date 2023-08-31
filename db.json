@@ -24,6 +24,16 @@
       "username": "",
       "password": "",
       "id": 5
+    },
+    {
+      "username": "",
+      "password": "",
+      "id": 6
+    },
+    {
+      "username": "",
+      "password": "",
+      "id": 7
     }
   ],
   "coffee": [
@@ -49,6 +59,26 @@
     }
   ],
   "favorite": [
+    {
+      "userId": 1,
+      "coffeeId": 1,
+      "id": 1
+    },
+    {
+      "userId": 2,
+      "coffeeId": 1,
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "coffeeId": 2,
+      "id": 4
+    },
+    {
+      "userId": 5,
+      "coffeeId": 4,
+      "id": 5
+    }
   ],
   "comments": [
     {

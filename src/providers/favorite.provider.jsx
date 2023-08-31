@@ -14,8 +14,6 @@ export const FavoriteProvider = ({ children }) => {
     refetch();
   }, []);
 
-  // const getCoffee = ({title, description}) => getNewCoffee({title, description});
-
   const toggleFavorite = ({ userId, coffeeId }) => {
     return toggleFavoriteAPI({ userId, coffeeId }).then(() => {
       return refetch();
