@@ -25,10 +25,6 @@ export const CoffeeList = () => {
         flexWrap: "wrap",
       }}
     >
-      {/* current problem is that it unfavorites but it doesnt favorite and returns in the db as only the id, so why? */}
-
-      {/* current problem on top is that it does not register the current id to the current user, meaning there is no own data */}
-      {/* when i click it, only the id is shown in db, why? */}
       {coffee.map((coffeez) => {
         const isFavorite = favorite.find(
           (favoriteCoffee) =>
